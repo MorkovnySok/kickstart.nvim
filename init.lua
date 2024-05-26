@@ -638,7 +638,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'typescript', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown' },
+      ensure_installed = { 'typescript', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'c_sharp' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
