@@ -14,8 +14,8 @@ map('i', '<C-c>', '<Esc>')
 
 map('n', '<C-Left>', "<cmd>lua require'utils'.resize(true, -5)<CR>")
 map('n', '<C-Right>', "<cmd>lua require'utils'.resize(true, 5)<CR>")
-map('n', '<C-Up>', "<cmd>lua require'utils'.resize(false, -5)<CR>")
-map('n', '<C-Down>', "<cmd>lua require'utils'.resize(false,  5)<CR>")
+map('n', '<C-Up>', "<cmd>lua require'./utils'.resize(false, -5)<CR>")
+map('n', '<C-Down>', "<cmd>lua require'./utils'.resize(false,  5)<CR>")
 
 -- terminal stuff
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = true })
