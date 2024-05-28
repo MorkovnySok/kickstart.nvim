@@ -1,24 +1,26 @@
-vim.keymap.set('n', '<C-t>', ':e %:p:r.ts<CR>', { desc = 'Go to typescript' })
-vim.keymap.set('n', '<C-g>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
-vim.keymap.set('n', '<C-b>', ':e %:p:r.css<CR>', { desc = 'Go to css' })
+local map = vim.keymap.set
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+map('n', '<C-t>', ':e %:p:r.ts<CR>', { desc = 'Go to typescript' })
+map('n', '<C-g>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
+map('n', '<C-b>', ':e %:p:r.css<CR>', { desc = 'Go to css' })
 
-vim.keymap.set('x', '<leader>p', [["_dP]])
-vim.keymap.set('i', '<C-c>', '<Esc>')
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
 
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
+map('x', '<leader>p', [["_dP]])
+map('i', '<C-c>', '<Esc>')
 
-vim.keymap.set('n', '<C-Left>', ':vertical resize -10<CR>')
-vim.keymap.set('n', '<C-Right>', ':vertical resize +10<CR>')
-vim.keymap.set('n', '<C-Up>', ':resize -5<CR>')
-vim.keymap.set('n', '<C-Down>', ':resize +5<CR>')
+map('n', '<C-Left>', "<cmd>lua require'utils'.resize(true, -5)<CR>")
+map('n', '<C-Right>', "<cmd>lua require'utils'.resize(true, 5)<CR>")
+map('n', '<C-Up>', "<cmd>lua require'utils'.resize(false, -5)<CR>")
+map('n', '<C-Down>', "<cmd>lua require'utils'.resize(false,  5)<CR>")
 
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = true })
-
+-- terminal stuff
+map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = true })
+map('n', '<leader>tr', ':te pwsh<CR>', { desc = 'Start powershell' })
+map('n', '<leader>ts', '<C-w>s:te pwsh<CR>', { desc = 'Start powershell in [s]plit' })
+map('n', '<leader>tv', '<C-w>v:te pwsh<CR>', { desc = 'Start powershell in [v]ertical split' })
 
 return {}
