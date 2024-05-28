@@ -18,4 +18,7 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +10<CR>')
 vim.keymap.set('n', '<C-Up>', ':resize -5<CR>')
 vim.keymap.set('n', '<C-Down>', ':resize +5<CR>')
 
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = true })
+
+
 return {}
