@@ -1,5 +1,3 @@
-vim.keymap.set('n', '<leader>ef', ':Oil<CR>', { desc = 'Launch oil' })
-
 return {
   'stevearc/oil.nvim',
   opts = {
@@ -8,4 +6,19 @@ return {
   },
   -- Optional dependencies
   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  float = {
+    -- Padding around the floating window
+    padding = 2,
+    max_width = 0,
+    max_height = 0,
+    border = 'rounded',
+    win_options = {
+      winblend = 0,
+    },
+    -- This is the config that will be passed to nvim_open_win.
+    -- Change values here to customize the layout
+    override = function(conf)
+      return conf
+    end,
+  },
 }

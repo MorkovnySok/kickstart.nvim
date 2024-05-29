@@ -23,4 +23,9 @@ map('n', '<leader>tr', ':te pwsh<CR>', { desc = 'Start powershell' })
 map('n', '<leader>ts', '<C-w>s:te pwsh<CR>', { desc = 'Start powershell in [s]plit' })
 map('n', '<leader>tv', '<C-w>v:te pwsh<CR>', { desc = 'Start powershell in [v]ertical split' })
 
+--trees
+map('n', '<leader>eo', ':Oil --float<CR>', { desc = 'Launch oil' })
+map('n', '<leader>ew', ':NvimTreeToggle<CR>', { desc = 'Open tree' })
+map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { desc = 'Find file in a tree' })
+
 return {}
