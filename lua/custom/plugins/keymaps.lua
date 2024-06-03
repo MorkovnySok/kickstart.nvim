@@ -22,6 +22,12 @@ map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = t
 map('n', '<leader>tr', ':te pwsh<CR>', { desc = 'Start powershell' })
 map('n', '<leader>ts', '<C-w>s:te pwsh<CR>', { desc = 'Start powershell in [s]plit' })
 map('n', '<leader>tv', '<C-w>v:te pwsh<CR>', { desc = 'Start powershell in [v]ertical split' })
+map('n', '<leader>tc', function()
+  vim.cmd 'cd %:p:h'
+  vim.cmd 'split'
+  vim.cmd 'terminal pwsh'
+  vim.cmd 'startinsert'
+end, { desc = 'Start powershell and cd to current directory' })
 
 --trees
 map('n', '<leader>eo', ':Oil --float<CR>', { desc = 'Launch oil' })

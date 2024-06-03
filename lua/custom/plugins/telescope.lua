@@ -111,5 +111,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    vim.keymap.set('n', '<leader>sp', function()
+      builtin.find_files { cwd = '~/personal' }
+    end, { desc = 'Search Personal' })
   end,
 }
