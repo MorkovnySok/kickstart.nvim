@@ -387,7 +387,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        --
+        prettier = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -418,7 +418,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'prettierd',
+        'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -436,7 +436,14 @@ require('lazy').setup({
       }
     end,
   },
-
+  {
+    'nvimtools/none-ls.nvim',
+    opts = function(_, opts)
+      local nls = require 'null-ls'
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, nls.builtins.formatting.prettier)
+    end,
+  },
   { -- Autoformat
     'stevearc/conform.nvim',
     lazy = false,
