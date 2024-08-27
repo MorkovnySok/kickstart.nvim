@@ -1,5 +1,13 @@
 # kickstart.nvim
 
+## add context menu to windows (edit in VIM)
+``` powershell
+New-Item -Path 'Registry::HKEY_CLASSES_ROOT\*\shell\VIM\command' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM' -Name '(default)' -Value 'Open in VIM' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM' -Name 'Icon' -Value 'C:\Windows\System32\wsl.exe,0' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM\command' -Name '(default)' -Value "powershell nvim '%1'" -Force | Out-Null;
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
