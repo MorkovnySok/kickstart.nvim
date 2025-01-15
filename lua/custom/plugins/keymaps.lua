@@ -33,5 +33,6 @@ end, { desc = 'Start powershell and cd to current directory' })
 map('n', '<leader>eo', ':Oil --float<CR>', { desc = 'Launch oil' })
 map('n', '<leader>ew', ':NvimTreeToggle<CR>', { desc = 'Open tree' })
 map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { desc = 'Find file in a tree' })
+map('n', '<leader>ex', ':silent !explorer "%:p:h"<CR>', { desc = 'Find file in a tree', silent = true })
 
 return {}
