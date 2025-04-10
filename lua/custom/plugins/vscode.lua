@@ -36,4 +36,32 @@ keymap('v', '<Leader>lf', v_notify 'editor.action.formatSelection', { silent = t
 keymap('v', '<Leader>la', v_notify 'editor.action.refactor', { silent = true })
 keymap('v', '<Leader>sc', v_notify 'workbench.action.showCommands', { silent = true })
 
+-- New Git keymaps (from your original config)
+keymap('n', '<Leader>gB', notify 'git.branches', { silent = true }) -- View all branches
+keymap('n', '<Leader>gb', notify 'git.createBranch', { silent = true }) -- Create new branch
+keymap('n', '<Leader>gp', notify 'git.pull', { silent = true }) -- Git pull
+keymap('n', '<Leader>gP', notify 'git.push', { silent = true }) -- Git push
+keymap('n', '<Leader>gt', notify 'workbench.view.scm', { silent = true }) -- Show Git panel
+keymap('n', '<Leader>gs', notify 'workbench.scm.focus', { silent = true }) -- Focus SCM view
+-- keymap('n', '<Leader>ga', notify 'git.stageAll', { silent = true }) -- Stage all changes
+keymap('n', '<Leader>gd', notify 'git.openChange', { silent = true }) -- View diff
+keymap('n', '<Leader>ge', notify 'workbench.action.editor.nextChange', { silent = true }) -- Next change
+keymap('n', 'ge', notify 'workbench.action.editor.nextChange', { silent = true }) -- Next error/change
+
+-- Additional useful Git commands
+-- keymap('n', '<Leader>gc', notify 'git.commit', { silent = true }) -- Git commit
+-- keymap('n', '<Leader>gC', notify 'git.commitAll', { silent = true }) -- Git commit all
+-- keymap('n', '<Leader>gu', notify 'git.unstage', { silent = true }) -- Git unstage
+-- keymap('n', '<Leader>gR', notify 'git.revertChange', { silent = true }) -- Git revert change
+-- keymap('n', '<Leader>gl', notify 'git.showOutput', { silent = true }) -- Show Git log
+
+-- Optional GitLens keymaps
+keymap('n', '<Leader>gh', notify 'gitlens.showQuickRepoHistory', { silent = true }) -- File history
+keymap('n', '<Leader>gH', notify 'gitlens.showQuickFileHistory', { silent = true }) -- Line history
+keymap('n', '<Leader>ga', notify 'gitlens.toggleFileBlame', { silent = true }) -- Toggle blame
+
+-- explorer
+keymap('n', '<Leader>ef', notify 'workbench.files.action.showActiveFileInExplorer', { silent = true }) -- show in file explorer
+keymap('n', '<Leader>fc', '<cmd>normal! viw<CR><cmd>call VSCodeNotify("workbench.action.findInFiles")<CR>', { silent = true })
+
 return M
