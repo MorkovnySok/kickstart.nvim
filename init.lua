@@ -396,7 +396,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        prettier = {},
+        -- prettier = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -427,7 +427,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'prettier',
+        -- 'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -442,23 +442,28 @@ require('lazy').setup({
             require('lspconfig')[server_name].setup(server)
           end,
         },
+        automatic_installation = true,
+        ensure_installed = {
+          'lua_ls',
+        },
       }
     end,
   },
   {
     'nvimtools/none-ls.nvim',
-    config = function()
-      local nls = require 'null-ls'
-      nls.setup {
-        sources = {
-          nls.builtins.formatting.prettier.with {
-            disabled_filetypes = { 'markdown', 'markdown.mdx' },
-          },
-          nls.builtins.formatting.stylua,
-        },
-        disabled_filetypes = { 'markdown' },
-      }
-    end,
+    opts = {},
+    -- config = function()
+    --   local nls = require 'null-ls'
+    --   nls.setup {
+    --     sources = {
+    --       nls.builtins.formatting.prettier.with {
+    --         disabled_filetypes = { 'markdown', 'markdown.mdx' },
+    --       },
+    --       nls.builtins.formatting.stylua,
+    --     },
+    --     disabled_filetypes = { 'markdown' },
+    --   }
+    -- end,
   },
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -631,6 +636,8 @@ require('lazy').setup({
     },
   },
 })
+
+require('typescript-tools').setup {}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
