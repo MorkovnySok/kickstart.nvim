@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
-map('n', '<C-g>', ':e %:p:r.ts<CR>', { desc = 'Go to typescript' })
-map('n', '<C-h>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
+map('n', '<C-t>', ':e %:p:r.ts<CR>', { desc = 'Go to typescript' })
+map('n', '<C-g>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
 map('n', '<C-b>', ':e %:p:r.css<CR>', { desc = 'Go to css' })
 
 map('n', '<C-d>', '<C-d>zz')
