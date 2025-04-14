@@ -25,7 +25,8 @@ keymap('n', '<Leader>lf', notify 'editor.action.formatDocument', { silent = true
 keymap('n', '<Leader>la', notify 'editor.action.refactor', { silent = true }) -- language code actions
 
 keymap('n', '<Leader>sg', notify 'workbench.action.findInFiles', { silent = true }) -- use ripgrep to search files
-keymap('n', '<Leader>ih', notify 'workbench.action.toggleSidebarVisibility', { silent = true })
+local hideCommand = notify 'workbench.action.closePanel' .. notify 'workbench.action.toggleSidebarVisibility'
+keymap('n', '<Leader>ih', hideCommand, { silent = true })
 keymap('n', '<Leader>sh', notify 'workbench.action.toggleAuxiliaryBar', { silent = true }) -- toggle docview (help page)
 keymap('n', '<Leader>tp', notify 'workbench.action.togglePanel', { silent = true })
 keymap('n', '<Leader>sc', notify 'workbench.action.showCommands', { silent = true }) -- find commands
