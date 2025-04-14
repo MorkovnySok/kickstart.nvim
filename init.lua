@@ -1,9 +1,3 @@
-if vim.g.vscode then
-  print 'VSCode extension'
-else
-  print 'ordinary Neovim'
-end
-
 local utils = require 'utils'
 
 -- Set <space> as the leader key
