@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map('n', '<leader>ll', ':%!dos2unix<CR>', { desc = 'Convert CRLF to LF' })
+
 map('n', '<C-t>', ':e %:p:r.ts<CR>', { desc = 'Go to typescript' })
 map('n', '<C-g>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
 map('n', '<C-b>', ':e %:p:r.css<CR>', { desc = 'Go to css' })

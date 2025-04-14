@@ -2,6 +2,8 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+vim.deprecate = function() end
+
 return {
   'cohama/lexima.vim',
 }
