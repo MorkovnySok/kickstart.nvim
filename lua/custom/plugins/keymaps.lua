@@ -35,4 +35,6 @@ map('n', '<leader>ew', ':NvimTreeToggle<CR>', { desc = 'Open tree' })
 map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { desc = 'Find file in a tree' })
 map('n', '<leader>ex', ':silent !explorer "%:p:h"<CR>', { desc = 'Find file in a tree', silent = true })
 
+-- telescope
+
 return {}

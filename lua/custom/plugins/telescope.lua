@@ -89,6 +89,23 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+    if vim.g.vscode then
+      local function notify(cmd)
+        return string.format("<cmd>call VSCodeNotify('%s')<CR>", cmd)
+      end
+
+      local function v_notify(cmd)
+        return string.format("<cmd>call VSCodeNotifyVisual('%s', 1)<CR>", cmd)
+      end
+
+      vim.keymap.set('v', '<Leader>sc', v_notify 'workbench.action.showCommands', { silent = true })
+      vim.keymap.set('n', '<Leader>sd', notify 'workbench.actions.view.problems', { silent = true }) -- language diagnostics
+      vim.keymap.set('n', '<Leader>sg', notify 'workbench.action.findInFiles', { silent = true }) -- use ripgrep to search files
+      vim.keymap.set('n', '<Leader>sh', notify 'workbench.action.toggleAuxiliaryBar', { silent = true }) -- toggle docview (help page)
+      vim.keymap.set('n', '<Leader>sc', notify 'workbench.action.showCommands', { silent = true }) -- find commands
+      vim.keymap.set('n', '<Leader>sf', notify 'workbench.action.quickOpen', { silent = true }) -- find files
+      vim.keymap.set('v', '<Leader>sc', v_notify 'workbench.action.showCommands', { silent = true })
+    end
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.

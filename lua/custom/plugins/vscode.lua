@@ -38,7 +38,7 @@ keymap('v', '<Leader>sc', v_notify 'workbench.action.showCommands', { silent = t
 
 -- New Git keymaps (from your original config)
 keymap('n', '<Leader>gB', notify 'git.branches', { silent = true }) -- View all branches
-keymap('n', '<Leader>gb', notify 'git.createBranch', { silent = true }) -- Create new branch
+keymap('n', '<Leader>gb', notify 'git.branch', { silent = true }) -- Create new branch
 keymap('n', '<Leader>gp', notify 'git.pull', { silent = true }) -- Git pull
 keymap('n', '<Leader>gP', notify 'git.push', { silent = true }) -- Git push
 keymap('n', '<Leader>gt', notify 'workbench.view.scm', { silent = true }) -- Show Git panel
