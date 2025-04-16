@@ -43,7 +43,7 @@ map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { desc = 'Find file in a tree' }
 map('n', '<leader>ex', ':silent !explorer "%:p:h"<CR>', { desc = 'Find file in a tree', silent = true })
 
 -- open in code
-map('n', '<leader>fo', ':!code %', { desc = '[F]ile [O]pen in VsCode' })
+map('n', '<leader>fo', ':!code %<CR>', { desc = '[F]ile [O]pen in VsCode', silent = true })
 
 -- Enable Ctrl+hjkl movements in Insert mode
 map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
@@ -51,6 +51,6 @@ map('i', '<C-j>', '<Down>', { desc = 'Move down in insert mode' })
 map('i', '<C-k>', '<Up>', { desc = 'Move up in insert mode' })
 map('i', '<C-l>', '<Right>', { desc = 'Move right in insert mode' })
 
-map('n', '<leader>lR', ':LspRestart<CR>', { desc = 'Restart LSP' })
+map('n', '<leader>lR', ':LspRestart<CR>', { desc = 'Restart LSP', silent = true })
 
 return {}
