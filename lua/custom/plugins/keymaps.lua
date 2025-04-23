@@ -43,7 +43,15 @@ map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { desc = 'Find file in a tree' }
 map('n', '<leader>ex', ':silent !explorer "%:p:h"<CR>', { desc = 'Find file in a tree', silent = true })
 
 -- open in code
-map('n', '<leader>fo', ':!code %<CR>', { desc = '[F]ile [O]pen in VsCode', silent = true })
+map('n', '<leader>fc', ':silent !code %<CR>', { desc = '[F]ile Open in Vs[C]ode', silent = true })
+map('n', '<leader>fy', ':let @+ = expand("%")<CR>', { desc = 'Yank File name to clip', silent = true })
+map('n', '<leader>fo', ':silent !wslview %<CR>', { desc = '[F]ile [O]pen with wslview', silent = true })
+map('n', '<leader>fe', ':silent !wslview %:p:h<CR>', { desc = '[F]ile Open with [E]xplorer', silent = true })
+map('n', '<leader>fx', function()
+  -- ':lua vim.system({"libreoffice", %})'
+  local path = vim.fn.expand '%'
+  vim.system { 'libreoffice', path }
+end, { desc = '[F]ile Open with [E]xplorer', silent = true })
 
 -- Enable Ctrl+hjkl movements in Insert mode
 map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
@@ -52,5 +60,13 @@ map('i', '<C-k>', '<Up>', { desc = 'Move up in insert mode' })
 map('i', '<C-l>', '<Right>', { desc = 'Move right in insert mode' })
 
 map('n', '<leader>lR', ':LspRestart<CR>', { desc = 'Restart LSP', silent = true })
+
+-- diagnostics
+map('n', '[d', function()
+  vim.diagnostic.goto_prev()
+end, { desc = 'Jump to previous diagnostic' })
+map('n', ']d', function()
+  vim.diagnostic.goto_next()
+end, { desc = 'Jump to next diagnostic' })
 
 return {}

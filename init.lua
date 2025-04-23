@@ -487,10 +487,37 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {
-          -- settings = {
-          --   javascript = { target = 'es2020' },
-          --   typescript = { target = 'es2020' },
+        -- ts_ls = {
+        --   -- settings = {
+        --   --   javascript = { target = 'es2020' },
+        --   --   typescript = { target = 'es2020' },
+        --   -- },
+        -- },
+        vtsls = {
+          root_dir = require('lspconfig.util').root_pattern('tsconfig.json', 'jsconfig.json', '.git'),
+          -- experimental = {
+          --   completion = {
+          --     enableServerSideFuzzyMatch = true,
+          --     entriesLimit = 20,
+          --   },
+          -- },
+          -- javascript = {
+          --   referencesCodeLens = {
+          --     enabled = true,
+          --     showOnAllFunctions = true,
+          --   },
+          --   implicitProjectConfig = {
+          --     checkJs = true,
+          --     target = 'ESNext',
+          --   },
+          --
+          --   inlayHints = {
+          --     functionLikeReturnTypes = { enabled = true },
+          --     parameterNames = { enabled = true },
+          --     parameterTypes = { enabled = true },
+          --     propertyDeclarationTypes = { enabled = true },
+          --     variableTypes = { enabled = true },
+          --   },
           -- },
         },
 
@@ -567,7 +594,7 @@ require('lazy').setup({
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>lf',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
