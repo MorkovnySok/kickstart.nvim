@@ -36,6 +36,9 @@ map('n', '<leader>tc', function()
   vim.cmd 'startinsert'
 end, { desc = 'Start powershell and cd to current directory' })
 
+-- git
+map('n', '<leader>ga', ':Git blame<CR>', { silent = true, desc = 'Git blame' })
+
 --trees
 map('n', '<leader>eo', ':Oil --float<CR>', { desc = 'Launch oil' })
 map('n', '<leader>ew', ':NvimTreeToggle<CR>', { desc = 'Open tree' })
