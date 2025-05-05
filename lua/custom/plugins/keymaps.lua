@@ -54,7 +54,7 @@ map('n', '<leader>fx', function()
   -- ':lua vim.system({"libreoffice", %})'
   local path = vim.fn.expand '%'
   vim.system { 'libreoffice', path }
-end, { desc = '[F]ile Open with [E]xplorer', silent = true })
+end, { desc = '[F]ile Open with libreoffice', silent = true })
 
 -- Enable Ctrl+hjkl movements in Insert mode
 map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
