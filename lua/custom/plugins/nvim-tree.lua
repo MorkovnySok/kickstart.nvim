@@ -7,7 +7,7 @@ return {
   },
   config = function()
     require('nvim-tree').setup {
-      view = { adaptive_size = true },
+      view = { adaptive_size = true, relativenumber = true },
     }
   end,
 }
