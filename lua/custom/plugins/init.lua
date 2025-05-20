@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 vim.deprecate = function() end
 vim.opt.fixeol = false
+vim.opt.colorcolumn = '120'
 
 vim.opt.langmap = table.concat({
   'йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,',
