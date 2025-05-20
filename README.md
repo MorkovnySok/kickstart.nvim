@@ -8,6 +8,20 @@ Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM' -Name 'Icon' -
 Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM\command' -Name '(default)' -Value "powershell nvim '%1'" -Force | Out-Null;
 ```
 
+## install
+The Releases page provides pre-built binaries for Linux systems.
+
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+```
+
+Then add this to your shell config (~/.bashrc, ~/.zshrc, ...):
+```bash
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
