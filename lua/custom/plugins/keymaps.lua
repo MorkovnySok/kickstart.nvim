@@ -50,11 +50,6 @@ map('n', '<leader>fc', ':silent !code %<CR>', { desc = '[F]ile Open in Vs[C]ode'
 map('n', '<leader>fy', ':let @+ = expand("%")<CR>', { desc = 'Yank File name to clip', silent = true })
 map('n', '<leader>fo', ':silent !wslview %<CR>', { desc = '[F]ile [O]pen with wslview', silent = true })
 map('n', '<leader>fe', ':silent !wslview %:p:h<CR>', { desc = '[F]ile Open with [E]xplorer', silent = true })
-map('n', '<leader>fx', function()
-  -- ':lua vim.system({"libreoffice", %})'
-  local path = vim.fn.expand '%'
-  vim.system { 'libreoffice', path }
-end, { desc = '[F]ile Open with libreoffice', silent = true })
 
 -- Enable Ctrl+hjkl movements in Insert mode
 map('i', '<C-h>', '<Left>', { desc = 'Move left in insert mode' })
