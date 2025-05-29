@@ -67,4 +67,7 @@ map('n', ']d', function()
   vim.diagnostic.goto_next()
 end, { desc = 'Jump to next diagnostic' })
 
+-- Database
+map('n', '<leader>dw', ':DBUIToggle<CR>', { desc = 'Toggle DBUI', silent = true })
+
 return {}
