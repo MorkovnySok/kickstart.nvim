@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map('n', '<leader>ll', ':%!dos2unix<CR>', { desc = 'Convert CRLF to LF' })
+map('n', '<leader>ll', 'a<Esc>:%!dos2unix<CR>gi<Esc>', { desc = 'Convert CRLF to LF' })
 
 map('n', '<leader>fd', function()
   local path = vim.fn.expand '%:p:h:t'
