@@ -11,6 +11,8 @@ end, { desc = 'Copy [F]ile [D]irectory to clipboard' })
 -- map('n', '<C-g>', ':e %:p:r.html<CR>', { desc = 'Go to html' })
 -- map('n', '<C-b>', ':e %:p:r.css<CR>', { desc = 'Go to css' })
 
+map('n', '+', '<C-a>')
+map('n', '-', '<C-x>')
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')

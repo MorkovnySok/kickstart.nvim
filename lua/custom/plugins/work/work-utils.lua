@@ -49,6 +49,6 @@ vim.keymap.set('n', '<leader>fxu', UpdateFromBuffer, { desc = '[F]ile update fro
 vim.keymap.set('n', '<leader>fxl', function()
   local path = vim.fn.expand '%'
   vim.system { 'libreoffice', path }
-end, { desc = '[F]ile update from buffer', silent = true })
+end, { desc = 'Open in libreoffice', silent = true })
 
 return {}
