@@ -13,6 +13,8 @@ end, { desc = 'Copy [F]ile [D]irectory to clipboard' })
 
 map('n', '+', '<C-a>')
 map('n', '-', '<C-x>')
+map('v', '+', '<C-a>gv', { desc = 'Increment numbers' })
+map('v', '-', '<C-x>gv', { desc = 'Decrement numbers' })
 map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
