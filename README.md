@@ -1,5 +1,27 @@
 # kickstart.nvim
 
+## add context menu to windows (edit in VIM)
+``` powershell
+New-Item -Path 'Registry::HKEY_CLASSES_ROOT\*\shell\VIM\command' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM' -Name '(default)' -Value 'Open in VIM' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM' -Name 'Icon' -Value 'C:\Windows\System32\wsl.exe,0' -Force | Out-Null;
+Set-ItemProperty -Path 'Registry::HKEY_CLASSES_ROOT\`*\shell\VIM\command' -Name '(default)' -Value "powershell nvim '%1'" -Force | Out-Null;
+```
+
+## install
+The Releases page provides pre-built binaries for Linux systems.
+
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+```
+
+Then add this to your shell config (~/.bashrc, ~/.zshrc, ...):
+```bash
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+```
+
 ## Introduction
 
 A starting point for Neovim that is:
@@ -74,7 +96,7 @@ too - it's ignored in the kickstart repo to make maintenance easier, but it's
 <details><summary> Linux and Mac </summary>
 
 ```sh
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/MorkovnySok/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 </details>
@@ -84,13 +106,13 @@ git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HO
 If you're using `cmd.exe`:
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "%localappdata%\nvim"
+git clone https://github.com/MorkovnySokkickstart.nvim.git "%localappdata%\nvim"
 ```
 
 If you're using `powershell.exe`
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
+git clone https://github.com/MorkovnySok/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
 ```
 
 </details>
