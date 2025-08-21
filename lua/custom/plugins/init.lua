@@ -6,6 +6,11 @@ vim.deprecate = function() end
 vim.opt.fixeol = false
 vim.opt.colorcolumn = '120'
 
+-- vim.o.fillchars = { fold = ' ' }
+vim.o.foldmethod = 'indent'
+vim.o.foldenable = false
+vim.o.foldlevel = 99
+
 vim.opt.langmap = table.concat({
   'йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,',
   "рh,оj,лk,дl,ж\\;,э',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,",
