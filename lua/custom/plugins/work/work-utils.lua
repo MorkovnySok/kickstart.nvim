@@ -55,10 +55,10 @@ vim.keymap.set('n', '<leader>fxl', function()
       vim.system { lib, node.absolute_path }
     end
   else
-    local path = vim.fn.expand '%:p'
+    local path = vim.fn.expand '%'
     if path ~= '' then
       vim.system { lib, path }
     end
   end
-end)
+end, { desc = 'Open in libreoffice' })
 return {}
