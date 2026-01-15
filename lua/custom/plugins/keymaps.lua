@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local utils = require 'utils'
 
 map('n', '<leader>ll', 'a<Esc>:%!dos2unix<CR>gi<Esc>', { desc = 'Convert CRLF to LF' })
 
@@ -53,6 +54,11 @@ map('n', '<leader>ex', ':silent !explorer "%:p:h"<CR>', { desc = 'Find file in a
 map('n', '<leader>fc', ':silent !code %<CR>', { desc = '[F]ile Open in Vs[C]ode', silent = true })
 map('n', '<leader>fy', ':let @+ = expand("%")<CR>', { desc = 'Yank File name to clip', silent = true })
 map('n', '<leader>fo', ':silent !wslview %<CR>', { desc = '[F]ile [O]pen with wslview', silent = true })
+map('n', '<leader>fo', function()
+  utils.do_on_file(function(path)
+    vim.system { 'wslview', path }
+  end)
+end, { desc = '[F]ile [O]pen with wslview', silent = true })
 map('n', '<leader>fe', ':silent !wslview %:p:h<CR>', { desc = '[F]ile Open with [E]xplorer', silent = true })
 
 -- Enable Ctrl+hjkl movements in Insert mode

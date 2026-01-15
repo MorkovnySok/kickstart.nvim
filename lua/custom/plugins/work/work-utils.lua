@@ -48,17 +48,9 @@ end
 vim.keymap.set('n', '<leader>fxu', UpdateFromBuffer, { desc = '[F]ile update from buffer', silent = true })
 vim.keymap.set('n', '<leader>fxl', function()
   local lib = 'libreoffice'
-  if vim.bo.filetype == 'NvimTree' then
-    local api = require 'nvim-tree.api'
-    local node = api.tree.get_node_under_cursor()
-    if node and node.type == 'file' then
-      vim.system { lib, node.absolute_path }
-    end
-  else
-    local path = vim.fn.expand '%'
-    if path ~= '' then
-      vim.system { lib, path }
-    end
-  end
+  local utils = require 'utils'
+  utils.do_on_file(function(path)
+    vim.system { lib, path }
+  end)
 end, { desc = 'Open in libreoffice' })
 return {}
