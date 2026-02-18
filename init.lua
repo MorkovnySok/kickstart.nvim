@@ -312,6 +312,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>A', group = '[A]dInsure' },
       },
     },
   },
@@ -955,6 +956,11 @@ require('lazy').setup({
     },
   },
 })
+
+pcall(function()
+  require("custom.adinsure").setup()
+  require("custom.adinsure.keymaps").setup()
+end)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
