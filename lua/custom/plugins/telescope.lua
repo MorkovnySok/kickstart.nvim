@@ -1,5 +1,16 @@
 vim.api.nvim_set_hl(0, 'TelescopePathTail', { fg = '#569CD6', bold = true })
 
+local actions = require 'telescope.actions'
+local action_state = require 'telescope.actions.state'
+
+local function toggle_layout(prompt_bufnr)
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local current = picker.layout_strategy
+
+  picker.layout_strategy = (current == 'vertical') and 'horizontal' or 'vertical'
+  picker:full_layout_update()
+end
+
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -44,21 +55,34 @@ return { -- Fuzzy Finder (files, lsp, etc)
               local entry = require('telescope.actions.state').get_selected_entry()
               vim.notify(entry.value, vim.log.levels.INFO)
             end,
+            ['<C-t>'] = toggle_layout,
+          },
+          n = {
+            ['<C-t>'] = toggle_layout,
           },
         },
         path_display = function(opts, path)
           local tail = require('telescope.utils').path_tail(path)
           return string.format('%s (%s)', tail, path)
         end,
+        layout_strategy = 'horizontal',
         layout_config = {
-          horizontal = { prompt_position = 'bottom', preview_width = 0.55 },
-          vertical = { mirror = false },
-          width = 0.87,
+          horizontal = { prompt_position = 'bottom', preview_width = 0.50 },
+          vertical = { prompt_position = 'top', mirror = true, preview_height = 0.50 },
+          width = 0.95,
           height = 0.80,
-          preview_cutoff = 120,
+          preview_cutoff = 1,
         },
       },
-      -- pickers = {}
+      pickers = {
+        lsp_document_symbols = {
+          format_item = function(item)
+            return string.format('[%s]  %s', item.kind, item.name)
+          end,
+          fname_width = 60,
+          symbol_width = 60,
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
