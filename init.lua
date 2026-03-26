@@ -245,8 +245,7 @@ require('lazy').setup({
           gitsigns.diffthis '@'
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
-        map('n', '<leader>ga', gitsigns.toggle_current_line_blame, { desc = '[g]it toggle line [a]nnotation' })
-        map('n', '<leader>gA', gitsigns.blame_line, { desc = '[g]it bl[a]me line' })
+        map('n', '<leader>gA', gitsigns.toggle_current_line_blame, { desc = '[g]it toggle line [a]nnotation' })
         map('n', '<leader>gD', gitsigns.toggle_deleted, { desc = '[g]it show [D]eleted' })
       end,
     },
@@ -961,8 +960,8 @@ require('lazy').setup({
 })
 
 pcall(function()
-  require("custom.adinsure").setup()
-  require("custom.adinsure.keymaps").setup()
+  require('custom.adinsure').setup()
+  require('custom.adinsure.keymaps').setup()
 end)
 
 -- The line beneath this is called `modeline`. See `:help modeline`

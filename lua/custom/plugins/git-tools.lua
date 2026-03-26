@@ -38,4 +38,17 @@ return {
       { '<leader>gq', '<cmd>GitConflictListQf<CR>', desc = 'Conflict list [q]uickfix' },
     },
   },
+  {
+    'Yu-Leo/blame-column.nvim',
+    opts = {},
+    cmd = 'BlameColumnToggle',
+    keys = {
+      {
+        '<leader>ga',
+        '<cmd>BlameColumnToggle<CR>',
+        desc = 'Toggle blame column',
+        silent = true,
+      },
+    },
+  },
 }
