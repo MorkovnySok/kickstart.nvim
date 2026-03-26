@@ -39,16 +39,34 @@ return {
     },
   },
   {
-    'Yu-Leo/blame-column.nvim',
-    opts = {},
-    cmd = 'BlameColumnToggle',
+    'FabijanZulj/blame.nvim',
+    lazy = false,
+    config = function()
+      require('blame').setup {}
+    end,
+    opts = {
+      blame_options = { '-w' },
+    },
     keys = {
       {
         '<leader>ga',
-        '<cmd>BlameColumnToggle<CR>',
+        '<cmd>BlameToggle window<CR>',
         desc = 'Toggle blame column',
         silent = true,
       },
     },
   },
+  -- {
+  --   'Yu-Leo/blame-column.nvim',
+  --   opts = {},
+  --   cmd = 'BlameColumnToggle',
+  --   keys = {
+  --     {
+  --       '<leader>ga',
+  --       '<cmd>BlameColumnToggle<CR>',
+  --       desc = 'Toggle blame column',
+  --       silent = true,
+  --     },
+  --   },
+  -- },
 }
