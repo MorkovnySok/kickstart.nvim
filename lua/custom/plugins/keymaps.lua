@@ -65,6 +65,9 @@ map('i', '<C-k>', '<Up>', { desc = 'Move up in insert mode' })
 map('i', '<C-l>', '<Right>', { desc = 'Move right in insert mode' })
 
 map('n', '<leader>lR', ':LspRestart<CR>', { desc = 'Restart LSP', silent = true })
+map('n', '<leader>tm', function()
+  require('custom.toggles').open()
+end, { desc = 'Open toggle [m]enu' })
 
 -- diagnostics
 map('n', '[d', function()

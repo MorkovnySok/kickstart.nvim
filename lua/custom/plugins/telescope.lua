@@ -1,16 +1,5 @@
 vim.api.nvim_set_hl(0, 'TelescopePathTail', { fg = '#569CD6', bold = true })
 
-local actions = require 'telescope.actions'
-local action_state = require 'telescope.actions.state'
-
-local function toggle_layout(prompt_bufnr)
-  local picker = action_state.get_current_picker(prompt_bufnr)
-  local current = picker.layout_strategy
-
-  picker.layout_strategy = (current == 'vertical') and 'horizontal' or 'vertical'
-  picker:full_layout_update()
-end
-
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -40,6 +29,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- See `:help telescope` and `:help telescope.setup()`
 
     local actions = require 'telescope.actions'
+    local action_state = require 'telescope.actions.state'
+
+    local function toggle_layout(prompt_bufnr)
+      local picker = action_state.get_current_picker(prompt_bufnr)
+      local current = picker.layout_strategy
+
+      picker.layout_strategy = (current == 'vertical') and 'horizontal' or 'vertical'
+      picker:full_layout_update()
+    end
+
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
