@@ -126,7 +126,20 @@ return {
           },
         },
         astro = {},
-        html = {},
+        cssls = {
+          init_options = {
+            provideFormatter = false,
+          },
+        },
+        emmet_language_server = {},
+        html = {
+          filetypes = { 'html', 'htmlangular' },
+          init_options = {
+            provideFormatter = false,
+            embeddedLanguages = { css = true, javascript = true },
+            configurationSection = { 'html', 'css', 'javascript' },
+          },
+        },
         angularls = {},
         vtsls = {
           root_dir = require('lspconfig.util').root_pattern('tsconfig.json', 'jsconfig.json', '.git'),

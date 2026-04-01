@@ -141,6 +141,7 @@ return {
           graphql = prettier,
           handlebars = prettier,
           html = prettier,
+          htmlangular = prettier,
           javascript = prettier,
           javascriptreact = prettier,
           json = prettier,
