@@ -31,15 +31,6 @@ map('n', '<C-Down>', "<cmd>lua require'./utils'.resize(false,  5)<CR>")
 
 -- terminal stuff
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Normal mode in terminal', noremap = true })
-map('n', '<leader>tr', ':te pwsh<CR>', { desc = 'Start powershell' })
-map('n', '<leader>ts', '<C-w>s:te pwsh<CR>', { desc = 'Start powershell in [s]plit' })
-map('n', '<leader>tv', '<C-w>v:te pwsh<CR>', { desc = 'Start powershell in [v]ertical split' })
-map('n', '<leader>tc', function()
-  vim.cmd 'cd %:p:h'
-  vim.cmd 'split'
-  vim.cmd 'terminal pwsh'
-  vim.cmd 'startinsert'
-end, { desc = 'Start powershell and cd to current directory' })
 
 --trees
 map('n', '<leader>eo', ':Oil --float<CR>', { desc = 'Launch oil' })
@@ -76,5 +67,7 @@ end, { desc = 'Jump to next diagnostic' })
 
 -- Database
 map('n', '<leader>dw', ':DBUIToggle<CR>', { desc = 'Toggle DBUI', silent = true })
+
+map('n', '<leader>tc', '<CMD>CsvViewToggle display_mode=border<CR>', { desc = 'toggle csvview' })
 
 return {}
