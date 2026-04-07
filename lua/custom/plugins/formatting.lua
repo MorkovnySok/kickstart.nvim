@@ -58,7 +58,10 @@ return {
         uv.fs_write(fd, table.concat(lines, '\n'))
         uv.fs_close(fd)
 
-        local args = { '--write' }
+        local args = {
+          '--write',
+          '--print-width=120',
+        }
         if ctx.range then
           local start_offset, end_offset = conform_util.get_offsets_from_range(ctx.buf, ctx.range)
           table.insert(args, '--range-start=' .. start_offset)

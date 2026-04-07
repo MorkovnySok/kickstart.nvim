@@ -4,6 +4,7 @@ return {
   main = 'nvim-treesitter.configs',
   opts = {
     ensure_installed = {
+      'angular',
       'astro',
       'typescript',
       'tsx',
