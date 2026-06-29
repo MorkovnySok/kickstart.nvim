@@ -61,6 +61,7 @@ return {
         local args = {
           '--write',
           '--print-width=120',
+          '--single-quote',
         }
         if ctx.range then
           local start_offset, end_offset = conform_util.get_offsets_from_range(ctx.buf, ctx.range)
