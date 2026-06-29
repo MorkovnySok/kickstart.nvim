@@ -1,5 +1,8 @@
 return {
   'morkovnysok/todo.nvim',
+  opts = {
+    file = vim.fn.expand("~/.todo.md")
+  },
   keys = {
     -- Toggle TODO popup
     {
