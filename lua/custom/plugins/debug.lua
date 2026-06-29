@@ -4,11 +4,11 @@ return {
     dependencies = {
       'rcarriga/nvim-dap-ui',
       'nvim-neotest/nvim-nio',
-      {
-        'microsoft/vscode-js-debug',
-        build = 'npm ci --ignore-scripts --legacy-peer-deps && npx gulp vsDebugServerBundle',
-        version = '1.*',
-      },
+      -- {
+      --   'microsoft/vscode-js-debug',
+      --   build = 'npm ci --ignore-scripts --legacy-peer-deps && npx gulp vsDebugServerBundle',
+      --   version = '1.*',
+      -- },
     },
     keys = {
       {
